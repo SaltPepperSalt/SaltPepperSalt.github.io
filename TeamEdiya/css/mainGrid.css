@@ -1,0 +1,446 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+
+/* 기본 설정 */
+html {
+    font-size: 10px;
+}
+body {
+    margin: 0;
+}
+body *,
+body *::after,
+body *::before{
+    box-sizing: border-box;
+}
+dd {
+    margin: 0;
+}
+
+/* 초기화 */
+.resetMargin {
+    margin: 0;
+}
+.btnNone {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.resetList {
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/* 유틸리티 */
+.a11yHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 공통 로고 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.4)
+}
+@keyframes headingBar{
+    0% {
+        transform:translateY(-78px) ;
+    }
+    100%{
+        transform:none;
+    }
+}
+.headerHeading::after {
+    animation: headingBar 0.4s;
+    content: "";
+    display: block;
+    background-color: #E0E0E0;
+    height: 1px;
+}
+
+@keyframes logoAni {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    80% {
+        transform: translateX(1%);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+
+.headerHeading a {
+    animation: logoAni .5s 0.4s backwards;
+    background-color: hotpink;
+    display: block;
+    width: 204px;
+    padding: 2.5rem 0;
+    background : url(../images/Logo.svg) no-repeat 50% 50%;
+    text-indent: 120%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* 공통 네비게이션 버튼*/
+@keyframes menuAni {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+.btnMenuopen {
+    animation: menuAni .5s 0.4s backwards;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%
+}
+
+.btnMenuopen:hover {
+    background-color: #eee;
+}
+
+.btnBgrd {
+    position: absolute;
+    width: 25px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.burgerBar {
+    display: block;
+    width: 100%;
+    height: 20%;
+    background-color: #525254;
+    position: absolute;
+}
+
+.burgerTop {
+    top: 0;
+}
+
+.burgerMiddle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burgerBottom {
+    top: 100%;
+    transform: translateY(-100%);
+}
+
+/* 공통 네비게이션  */
+.menuList {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(14, 18, 35, 0.9);
+    padding-top: 50px;
+    transform: translateX(100%);
+    transition: all .5s;
+}
+
+.isAct .menuList {
+    transform: none;
+}
+
+.menuLink {
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 1em;
+    display: block;
+    border-bottom: 1px solid #22305A;
+    transition: all 0.5s;
+}
+
+.menuLink:hover,
+.menuLink:focus {
+    background-color: #22305A;
+}
+
+.btnMenuClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 3rem;
+    padding: 20px 30px;
+    color: #fff;
+    transform: translate(100%);
+    transition: all .5s;
+}
+
+.isAct .btnMenuClose {
+    transform: none;
+}
+.isAct .btnMenuClose:hover,
+.isAct .btnMenuClose:focus{
+    transform: scale(1.4);
+}
+
+/* 공통 메인 */
+@keyframes productAni {
+    0% {
+        transform: translateY(15%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+
+
+.productList {
+    margin: 0 auto;
+    padding: 10rem 2rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,400px));
+    grid-template-rows: repeat(4, 360px);
+    gap: 30px 30px;
+}
+
+@media screen and (min-width: 575px) {
+    .productList {
+        max-width: 830px;
+    }
+}
+@media screen and (max-width: 574px) {
+    .productList{
+        grid-template-columns: 100%;
+    }
+}
+.productList li {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.product {
+    background-color: #f5f5f5;
+    position: relative;
+    text-align: center;
+    height: 360px;
+}
+.productList li:nth-child(1){
+    animation: productAni 1s 0.4s backwards;
+}
+
+.productList li:nth-child(2){
+    animation: productAni 1s 0.5s backwards;
+}
+
+.productList li:nth-child(3){
+    animation: productAni 1s 0.6s backwards;
+}
+
+.productList li:nth-child(4){
+    animation: productAni 1s 0.7s backwards;
+}
+
+.productList li:nth-child(n+5){
+    animation: productAni 1s 0.4s backwards;
+}
+
+.infoButton {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+
+.productFront {
+    height: 100%;
+}
+
+.productFront figcaption {
+    font-size: 1.6rem;
+}
+
+.productImg{
+    max-width: 100%;
+    height: 85%;
+    transform: scale(0.85);
+    transition: all .5s;
+    /* width: 50%; */
+}
+
+.infoButton:hover ~ .productFront .productImg,
+.infoButton:focus ~ .productFront .productImg {
+    transform: none;
+}
+
+.productHeading {
+    font-weight: normal;
+    font-size: 1.8rem;
+}
+
+.productBack {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 2rem 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #ddd;
+    z-index: -1;
+}
+
+.infoOpen {
+    z-index: 1;
+    opacity: 1;
+}
+
+.enTitle {
+    display: block;
+    font-size: 1.5rem;
+    color: #888;
+}
+
+.enTitle::after {
+    content: "";
+    display: block;
+    background-color: #181818;
+    height: 2px;
+    margin-top: 2rem;
+}
+
+.productInfo {
+    margin-top: 1em;
+    font-size: 1.6rem;
+}
+
+.productNutrition {
+    font-size: 1.3rem;
+    background-color: #F8F8F8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    padding: 2rem 1.5rem;
+    line-height: 1.5;
+}
+.nutrition {
+    padding-left: 2rem;
+}
+.content {
+    padding-left: 1em;
+}
+.content:nth-child(4n-2){
+    border-right: 1px solid black;
+}
+.content::after{
+    content: "\)";
+}
+.content::before{
+    content: "\(";
+}
+.closeinfoButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1em 1.2em;
+}
+
+.closeinfoButton:hover {
+    background-color: #efefef;
+}
+
+.closeinfoButton span {
+    font-weight: 100;
+    font-size: 2.5rem;
+}
+.scrollUp {
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/GoToTop.png);
+    background-repeat: no-repeat;
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    cursor: pointer;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* 다크모드 */
+/* @media (prefers-color-scheme: dark) {
+    body{
+        background-color: #000;
+        color: #fff;
+    }
+    .product {
+        background-color: #303030;
+    }
+    .headerHeading{
+        border-bottom-color: #606060;
+    }
+    figcaption {
+        color: #fff;
+    }
+    .menuList {
+        background-color: #181818;
+    }
+    .menuItem a{
+        border-bottom-color: #525254;
+    }
+    .productNutrition{
+        background-color: #181818;
+        column-rule-color:  #fff;
+    }
+    .productBack{
+        background-color: rgba(20, 20, 20, 0.7);
+        border-color: #525254;
+    }
+    .headerHeading a {
+        background-image: url(../images/Logo1x_negative.png);
+    }
+    .closeinfoButton{
+        color: #777;
+    } 
+     
+}*/
